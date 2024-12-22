@@ -17,15 +17,22 @@ patterns = [
     ]),
     # Handle general mentions of "admission process" more flexibly
     (r'(.*)admission process(.*)', [
-        'Candidates need to register for entrance exams like KCET or COMEDK-UCET for BE admission. For Management Quota, registration will be done on the official website of the institute. NIE Mysore takes admissions to MCA and MTech programmes is through the Karnataka PGCET conducted by the Karnataka Examination Authority (KEA). For detailed information, visit our official admissions page: (https://nie.ac.in/admission/)'
+        'Candidates need to register for entrance exams like KCET or COMEDK-UCET for BE admission.\nFor Management Quota, registration will be done on the official website of the institute.\nNIE Mysore takes admissions to MCA and MTech programmes is through the Karnataka PGCET conducted by the Karnataka Examination Authority (KEA). For detailed information, visit our official admissions page: (https://nie.ac.in/admission/)'
     ]),
     # Handle general mentions of "fee structure" more flexibly
-    (r'(.*)fee structure(.*)', [
-        'The fee structure for various courses at NIE College can be found on the official website. For detailed information, visit: [Fee Structure](https://nie.ac.in/fee-structure/)'
+    (r'(.*)fee structure(.*)|(.*)fees(.*)|(.*)total cost(.*)', [
+        'BE: Total fees for the programme is 10.66 Lakhs.\n Mtech: Total fees for the programme is 10.66 Lakhs.\nMCA: Total fees for the programme is 1.28 Lakhs.\nFor More Details, Visit: (https://nie.ac.in/admission/)'
+    ]),
+    (r'(.*)about nie(.*)|', [
+        'The National Institute of Engineering (NIE), established in the year 1946, is a premier engineering college in Mysuru, Karnataka, India.',
+        'NIE is a premier engineering college in Mysuru, Karnataka, India.'
+    ]),
+    (r'(.*)campus(.*)|(.*)campuses(.*)', [
+        'NIE offers 3 UG Courses and 1 PG Course at North Campus and NIE offers 4 UG Courses and 9 PG Courses at South Campus'
     ]),
     # Handle general mentions of "courses offered" more flexibly
     (r'(.*)courses offered(.*)', [
-        'NIE College offers a variety of undergraduate and postgraduate courses. Check out our courses page for more details: [Courses Offered](https://nie.ac.in/courses-offered/)'
+        'NIE has two campuses. NIE North and NIE South.\nNIE College offers a variety of undergraduate and postgraduate courses. Check out our courses page for more details: [Courses Offered](https://nie.ac.in/courses-offered/)'
     ]),
     # Handle general mentions of "contact" or "contact us" more flexibly
     (r'(.*)contact(.*)', [
