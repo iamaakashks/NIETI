@@ -15,30 +15,35 @@ patterns = [
     (r'(.*)your name(.*)|(.*)name(.*)', [
         'My name is NIETI, a College Inquiry Chatbot at NIE, mysuru. How can I assist you today?'
     ]),
+    (r'(.*)college name(.*)',
+     ['The National Institutes of Engineering, Mysuru.']),
     # Handle general mentions of "admission process" more flexibly
-    (r'(.*)admission process(.*)', [
-        'Candidates need to register for entrance exams like KCET or COMEDK-UCET for BE admission.\nFor Management Quota, registration will be done on the official website of the institute.\nNIE Mysore takes admissions to MCA and MTech programmes is through the Karnataka PGCET conducted by the Karnataka Examination Authority (KEA). For detailed information, visit our official admissions page: (https://nie.ac.in/admission/)'
+    (r'(.*)admission process(.*)|(.*)admission(.*)', [
+        'Candidates need to register for entrance exams like KCET or COMEDK-UCET for BE admission.\nFor Management Quota, registration will be done on the official website of the institute.\nNIE Mysore takes admissions to MCA and MTech programmes is through the Karnataka PGCET conducted by the Karnataka Examination Authority (KEA).\nFor detailed information, visit our official admissions page: (https://nie.ac.in/admission/)'
     ]),
     # Handle general mentions of "fee structure" more flexibly
-    (r'(.*)fee structure(.*)|(.*)fees(.*)|(.*)total cost(.*)', [
+    (r'(.*)fee(.*)|(.*)fees(.*)|(.*)total cost(.*)', [
         'BE: Total fees for the programme is 10.66 Lakhs(approx).\n Mtech: Total fees for the programme is 1.51 Lakhs(approx).\nMCA: Total fees for the programme is 1.28 Lakhs(approx).\nTo get exact number, Visit: (https://nie.ac.in/admission/)'
     ]),
-    (r'(.*)campus(.*)|(.*)campuses(.*)', [
-        'NIE has two campuses. NIE North and NIE South.\nNIE offers 3 UG Courses and 1 PG Course at North Campus and 4 UG Courses and 9 PG Courses at South Campus'
-    ]),
+    (r'(.*)campus(.*)|(.*)campuses(.*)',
+     ['NIE has two campuses. NIE North and NIE South.']),
     # Handle general mentions of "courses offered" more flexibly
     (r'(.*)courses(.*)', [
-        'NIE College offers a variety of undergraduate and postgraduate courses. Check out our courses page for more details: [Courses Offered](https://nie.ac.in/courses-offered/)'
+        'NIE offers 3 UG Courses and 1 PG Course at North Campus and 4 UG Courses and 9 PG Courses at South Campus'
     ]),
     # Handle general mentions of "contact" or "contact us" more flexibly
     (r'(.*)contact(.*)', [
-        'NIE NORTH\n+91 – 63669 14772\nnorthcampus@nie.ac.in\n\nNIE SOUTH\n+91 – 63669 14771\nsouthcampus@nie.ac.in'
+        'NIE NORTH\n+91 –6366914772\nnorthcampus@nie.ac.in\n\nNIE SOUTH\n+91 – 63669 14771\nsouthcampus@nie.ac.in'
     ]),
     # Handle general mentions of "location" more flexibly
     (r'(.*)location(.*)', [
         'NIE College is located in Mysuru, Karnataka. Visit the campus at the North Campus for a tour. For location details, check: [Location](https://nie.ac.in/contact-us/)'
     ]),
-    (r'(.*)placements(.*)',
+    (r'(.*)placements Statistics(.*)|(.*)placement Statistics(.*)|(.*)placement Statistic(.*)|(.*)placements Statistic(.*)|(.*)placements Stats(.*)|(.*)placement Stats(.*)',
+     [
+         'Highest package offered:	INR 56 LPA\nAverage package:INR 9 LPA\nNo. of eligible students: 821\nNo. of students placed: 708\nTotal offers made: 960+\nNo. of Dream offers: 500+\nNo. of companies visited: 348\nPopular recruiters: Dell, Zomato, IBM, Samsung, Infosys'
+     ]),
+    (r'(.*)placements(.*)|(.*)placement(.*)',
      ['Highest package offered during the 2021-22 is 43.18 LPA.']),
 
     # Handle gratitude in a general way
