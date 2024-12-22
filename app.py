@@ -17,11 +17,11 @@ patterns = [
      ['The National Institutes of Engineering, Mysuru.']),
     # Handle general mentions of "admission process" more flexibly
     (r'(.*)admission process(.*)|(.*)admission(.*)', [
-        'Candidates need to register for entrance exams like KCET or COMEDK-UCET for BE admission.\nFor Management Quota, registration will be done on the official website of the institute.\nNIE Mysore takes admissions to MCA and MTech programmes is through the Karnataka PGCET conducted by the Karnataka Examination Authority (KEA).\nFor detailed information, visit our official admissions page: (https://nie.ac.in/admission/)'
+        'Candidates need to register for entrance exams like KCET or COMEDK-UCET for BE admission.\nFor Management Quota, registration will be done on the official website of the institute.\nNIE Mysore takes admissions to MCA and MTech programmes is through the Karnataka PGCET conducted by the Karnataka Examination Authority (KEA).\nFor detailed information, visit our official admissions page: <a href="https://nie.ac.in/admission/">(https://nie.ac.in/admission/</a>)'
     ]),
     # Handle general mentions of "fee structure" more flexibly
     (r'(.*)fee(.*)|(.*)fees(.*)|(.*)total cost(.*)', [
-        'BE: Total fees for the programme is 10.66 Lakhs(approx).\n Mtech: Total fees for the programme is 1.51 Lakhs(approx).\nMCA: Total fees for the programme is 1.28 Lakhs(approx).\nTo get exact number, Visit: (https://nie.ac.in/admission/)'
+        'BE: Total fees for the programme is 10.66 Lakhs(approx).\n Mtech: Total fees for the programme is 1.51 Lakhs(approx).\nMCA: Total fees for the programme is 1.28 Lakhs(approx).\nTo get exact number, Visit: <a href="https://nie.ac.in/admission/">(https://nie.ac.in/admission/)</a>'
     ]),
     #campuses
     (r'(.*)campus(.*)|(.*)campuses(.*)',
@@ -33,26 +33,26 @@ patterns = [
     ]),
     # Handle general mentions of "contact" or "contact us" more flexibly
     (r'(.*)contact(.*)', [
-        'NIE NORTH\n+91 –6366914772\nnorthcampus@nie.ac.in\n\nNIE SOUTH\n+91 – 63669 14771\nsouthcampus@nie.ac.in'
+        'NIE NORTH\n+91 –6366914772\n<a href="northcampus@nie.ac.in">northcampus@nie.ac.in</a>\n\nNIE SOUTH\n+91 – 63669 14771\n<a href="southcampus@nie.ac.in">southcampus@nie.ac.in</a>'
     ]),
     # Handle general mentions of "location" more flexibly
     (r'(.*)location(.*)', [
-        'NIE College is located in Mysuru, Karnataka. Visit the campus at the North Campus for a tour. For location details, check: [Location](https://nie.ac.in/contact-us/)'
+        'NIE College is located in Mysuru, Karnataka. Visit the campus at the North Campus for a tour. For location details, check: [Location]<a href="https://nie.ac.in/contact-us/">https://nie.ac.in/contact-us/</a>'
     ]),
     #placements
     (r'(.*)placements(.*)|(.*)placement(.*)|(.*)placements Statistics(.*)|(.*)placement Statistics(.*)|(.*)placement Statistic(.*)|(.*)placements Statistic(.*)|(.*)placements Stats(.*)|(.*)placement Stats(.*)',
      [
-         'Highest package offered:	INR 56 LPA\nAverage package:INR 9 LPA\nNo. of eligible students: 821\nNo. of students placed: 708\nTotal offers made: 960+\nNo. of Dream offers: 500+\nNo. of companies visited: 348\nPopular recruiters: Dell, Zomato, IBM, Samsung, Infosys'
+         'Highest package offered:	INR 56 LPA\nAverage package:INR 9 LPA\nNo. of eligible students: 821\nNo. of students placed: 708\nTotal offers made: 960+\nNo. of Dream offers: 500+\nNo. of companies visited: 348\nPopular recruiters: Dell, Zomato, IBM, Samsung, Infosys \n for more info visit <a href="https://nie.ac.in/placements/">https://nie.ac.in/placements/</a>'
      ]),
     #activities
     (r'(.*)activities(.*)|(.*)extra-curricular activities(.*)|(.*)clubs(.*)|(.*)extra curricular activities(.*)',
      [
-         'NIE offers a range of clubs, including technical ones like OWASP, ONYX, IEEE, and The Byte Club, as well as non-technical options like the Kannada Club and ED-Soc literature Club. Would you like details on any specific club?'
+         'NIE offers a range of clubs, including technical ones like OWASP, ONYX, IEEE, and The Byte Club, as well as non-technical options like the Kannada Club and ED-Soc literature Club, for more info <a href="https://nie.ac.in/campus-life/#student-activities">https://nie.ac.in/campus-life/#student-activities</a>'
      ]),
     #hostel facilities
     (r'(.*)hostel(.*)|(.*)hostel facilities(.*)', [
         'The Institute has constructed two brand new hostels – one for boys and another one for girls with all modern amenities.',
-        'The boys’ hostel building is G+4 floors, with 49 triple accommodations, 2 double accommodations and 4 guest rooms.\nThe girls’ hostel building is G+4 floors, with 40 triple accommodation, 2 double accommodation and 4 guest rooms.'
+        'The boys’ hostel building is G+4 floors, with 49 triple accommodations, 2 double accommodations and 4 guest rooms.\nThe girls’ hostel building is G+4 floors, with 40 triple accommodation, 2 double accommodation and 4 guest rooms. for more info <a href="https://nie.ac.in/campus-life/#student-housing">https://nie.ac.in/campus-life/#student-housing</a>'
     ]),
 
     #seat-matrix
@@ -62,7 +62,7 @@ patterns = [
 
     #faculties
     (r'(.*)faculty(.*)|(.*)faculties(.*)|(.*)faculty details(.*)', [
-        'NIE has experienced and supportive faculty members who are dedicated to providing quality education and fostering student growth. click here to get more about this: https://nie.ac.in/faculty-corner/'
+        'NIE has experienced and supportive faculty members who are dedicated to providing quality education and fostering student growth'
     ]),
 
     #transportation

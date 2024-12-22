@@ -69,16 +69,24 @@
     </div>
 
     <!-- Chatbot Widget -->
-    <div class="chatbot-toggle" onclick="toggleChatbox()">💬</div>
-    <div class="chatbox-container" id="chatboxContainer">
-        <div class="chatbox" id="chatbox">
-            <div class="message bot-msg">
-                <strong>NIETI:</strong> Hello! How can I assist you with your inquiries about NIE College?
-            </div>
+<!-- Chatbot Widget -->
+<div class="chatbot-toggle" onclick="toggleChatbox()">💬</div>
+<div class="chatbox-container" id="chatboxContainer">
+    <div class="chatbox-header">
+        <span>Chat with NIETI</span>
+        <button class="close-btn" onclick="toggleChatbox()">✖</button>
+    </div>
+    <div class="chatbox" id="chatbox">
+        <div class="message bot-msg">
+            <strong>NIETI:</strong> Hello! How can I assist you with your inquiries about NIE College?
         </div>
+    </div>
+    <div class="chatbox-input">
         <input type="text" id="userInput" placeholder="Type your message..." onkeydown="handleEnterKey(event)">
         <button onclick="sendMessage()">Send</button>
     </div>
+</div>
+
 
     <!-- Footer -->
     <div class="footer">
