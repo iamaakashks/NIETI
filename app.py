@@ -15,6 +15,7 @@ patterns = [
     (r'(.*)your name(.*)|(.*)name(.*)', [
         'My name is NIETI, a College Inquiry Chatbot at NIE, mysuru. How can I assist you today?'
     ]),
+    #college name
     (r'(.*)college name(.*)',
      ['The National Institutes of Engineering, Mysuru.']),
     # Handle general mentions of "admission process" more flexibly
@@ -25,8 +26,10 @@ patterns = [
     (r'(.*)fee(.*)|(.*)fees(.*)|(.*)total cost(.*)', [
         'BE: Total fees for the programme is 10.66 Lakhs(approx).\n Mtech: Total fees for the programme is 1.51 Lakhs(approx).\nMCA: Total fees for the programme is 1.28 Lakhs(approx).\nTo get exact number, Visit: (https://nie.ac.in/admission/)'
     ]),
+    #campuses
     (r'(.*)campus(.*)|(.*)campuses(.*)',
      ['NIE has two campuses. NIE North and NIE South.']),
+
     # Handle general mentions of "courses offered" more flexibly
     (r'(.*)courses(.*)', [
         'NIE offers 3 UG Courses and 1 PG Course at North Campus and 4 UG Courses and 9 PG Courses at South Campus'
@@ -39,19 +42,33 @@ patterns = [
     (r'(.*)location(.*)', [
         'NIE College is located in Mysuru, Karnataka. Visit the campus at the North Campus for a tour. For location details, check: [Location](https://nie.ac.in/contact-us/)'
     ]),
-    (r'(.*)placements Statistics(.*)|(.*)placement Statistics(.*)|(.*)placement Statistic(.*)|(.*)placements Statistic(.*)|(.*)placements Stats(.*)|(.*)placement Stats(.*)',
+    #placements
+    (r'(.*)placements(.*)|(.*)placement(.*)|(.*)placements Statistics(.*)|(.*)placement Statistics(.*)|(.*)placement Statistic(.*)|(.*)placements Statistic(.*)|(.*)placements Stats(.*)|(.*)placement Stats(.*)',
      [
          'Highest package offered:	INR 56 LPA\nAverage package:INR 9 LPA\nNo. of eligible students: 821\nNo. of students placed: 708\nTotal offers made: 960+\nNo. of Dream offers: 500+\nNo. of companies visited: 348\nPopular recruiters: Dell, Zomato, IBM, Samsung, Infosys'
      ]),
-    (r'(.*)placements(.*)|(.*)placement(.*)',
-     ['Highest package offered during the 2021-22 is 43.18 LPA.']),
+    #activities
+    (r'(.*)activities(.*)|(.*)extra-curricular activities(.*)|(.*)clubs(.*)', [
+        'NIE offers a range of clubs, including technical ones like OWASP, ONYX, IEEE, and The Byte Club, as well as non-technical options like the Kannada Club and ED-Soc literature Club. Would you like details on any specific club?'
+    ]),
+    #hostel facilities
+    (r'(.*)hostel(.*)|(.*)hostel facilities(.*)', [
+        'The Institute has constructed two brand new hostels – one for boys and another one for girls with all modern amenities.',
+        'The boys’ hostel building is G+4 floors, with 49 triple accommodations, 2 double accommodations and 4 guest rooms.\nThe girls’ hostel building is G+4 floors, with 40 triple accommodation, 2 double accommodation and 4 guest rooms.'
+    ]),
+
+    #transportation
+    (r'(.*)Transport(.*)|(.*)Transportation(.*)', [
+        'NIE provides bus facilities for day-scholars and also between the south-campus hostel and north-campus.'
+    ]),
 
     # Handle gratitude in a general way
     (r'(.*) (thanks|thank you)(.*)',
      ['You’re welcome! Let me know if you have more questions.']),
     # Catch-all for unrecognized queries
-    (r'(.*)',
-     ['Sorry, I didn’t quite understand that. Can you please ask again?'])
+    (r'(.*)', [
+        'Sorry, I didn’t quite understand that. Can you please ask again? or contact southcampus@nie.ac.in or northcampus@nie.ac.in'
+    ])
 ]
 
 # Initialize the chatbot with patterns and reflections
