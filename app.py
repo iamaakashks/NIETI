@@ -10,11 +10,8 @@ app = Flask(__name__)
 
 # Define more general chatbot patterns to handle varied user inputs
 patterns = [
-    (r'hi|hello|hey',
-     ['Hello! How can I help you with your inquiry about NIE College?']),
-    (r'(.*)your name(.*)|(.*)name(.*)', [
-        'My name is NIETI, a College Inquiry Chatbot at NIE, mysuru. How can I assist you today?'
-    ]),
+    (r'hi|hello|hey', ["Hello! My name is NIETI. How can I assist you today?"
+                       ]),
     #college name
     (r'(.*)college name(.*)',
      ['The National Institutes of Engineering, Mysuru.']),
