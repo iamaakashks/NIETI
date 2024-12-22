@@ -3,123 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIE College Inquiry Chatbot - Mysuru</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .chat-container {
-            width: 60%;
-            margin: 50px auto;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-        }
-        .chat-box {
-            width: 100%;
-            height: 400px;
-            overflow-y: scroll;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 6px;
-            background-color: #fafafa;
-            margin-bottom: 20px;
-        }
-        .user-input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            box-sizing: border-box;
-        }
-        .btn-send {
-            padding: 12px 25px;
-            background-color: #005f73;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-size: 16px;
-        }
-        .btn-send:hover {
-            background-color: #0a9396;
-        }
-        .message {
-            margin-bottom: 15px;
-        }
-        .bot-message {
-            background-color: #d1ecf1;
-            padding: 10px;
-            border-radius: 6px;
-            margin-left: 10px;
-        }
-        .user-message {
-            background-color: #e2e3e5;
-            padding: 10px;
-            border-radius: 6px;
-            margin-right: 10px;
-        }
-        h2 {
-            text-align: center;
-            color: #005f73;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .logo {
-            display: block;
-            margin: 0 auto;
-            max-width: 150px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="chat-container">
-    <h2>NIE College Inquiry Chatbot - Mysuru</h2>
-    <!-- College Logo -->
-    <img src="https://nie.ac.in/wp-content/uploads/2019/10/NIE_Logo.png" alt="NIE College Logo" class="logo">
-    
-    <div id="chat-box" class="chat-box"></div>
-    
-    <input type="text" id="user-input" class="user-input" placeholder="Ask me anything about NIE College..." />
-    <button class="btn-send" onclick="sendMessage()">Send</button>
-</div>
-
-<script>
-    function sendMessage() {
-        var userInput = document.getElementById('user-input').value;
-        if (userInput.trim() != "") {
-            // Add user message to chat box
-            var userMessage = document.createElement('div');
-            userMessage.classList.add('message', 'user-message');
-            userMessage.innerText = userInput;
-            document.getElementById('chat-box').appendChild(userMessage);
-            
-            // Clear input field
-            document.getElementById('user-input').value = '';
-            
-            // Scroll chat box to bottom
-            document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-
-            // Get bot response from Flask
-            fetch(`/get?msg=${encodeURIComponent(userInput)}`)
+    <title>NIE College - Chatbot Widget</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function sendMessage() {
+            const userMessage = document.getElementById('userInput').value;
+            fetch(`/get?msg=${encodeURIComponent(userMessage)}`)
                 .then(response => response.json())
                 .then(data => {
-                    var botMessage = document.createElement('div');
-                    botMessage.classList.add('message', 'bot-message');
-                    botMessage.innerText = data.response;
-                    document.getElementById('chat-box').appendChild(botMessage);
-                    
-                    // Scroll chat box to bottom
-                    document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+                    const chatbox = document.getElementById('chatbox');
+                    chatbox.innerHTML += `<div class="message user-msg"><strong>You:</strong> ${userMessage}</div>`;
+                    chatbox.innerHTML += `<div class="message bot-msg"><strong>Bot:</strong> ${data.response}</div>`;
+                    document.getElementById('userInput').value = '';
+                    chatbox.scrollTop = chatbox.scrollHeight;
                 });
         }
-    }
-</script>
+
+        function toggleChatbox() {
+            const chatboxContainer = document.getElementById('chatboxContainer');
+            chatboxContainer.style.display = (chatboxContainer.style.display === 'none' || chatboxContainer.style.display === '') ? 'block' : 'none';
+        }
+
+        // Function to listen for Enter key press to send message
+        function handleEnterKey(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <h1>NIE College</h1>
+        <p>Your gateway to quality education!</p>
+    </div>
+
+    <div class="content">
+        <h2>Welcome to NIE College</h2>
+        <p>Explore our courses, admission process, and more.</p>
+    </div>
+
+    <!-- Chatbot Widget Toggle Button -->
+    <div class="chatbot-toggle" onclick="toggleChatbox()">💬</div>
+
+    <!-- Chatbot Container -->
+    <div class="chatbox-container" id="chatboxContainer">
+        <div class="chatbox" id="chatbox">
+            <div class="message bot-msg">
+                <strong>Bot:</strong> Hello! How can I assist you with your inquiries about NIE College?
+            </div>
+        </div>
+        <input type="text" id="userInput" placeholder="Type your message..." onkeydown="handleEnterKey(event)">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 NIE College, Mysuru</p>
+    </div>
 </body>
 </html>
+
