@@ -21,27 +21,26 @@ patterns = [
     ]),
     # Handle general mentions of "fee structure" more flexibly
     (r'(.*)fee structure(.*)|(.*)fees(.*)|(.*)total cost(.*)', [
-        'BE: Total fees for the programme is 10.66 Lakhs.\n Mtech: Total fees for the programme is 10.66 Lakhs.\nMCA: Total fees for the programme is 1.28 Lakhs.\nFor More Details, Visit: (https://nie.ac.in/admission/)'
-    ]),
-    (r'(.*)about nie(.*)|', [
-        'The National Institute of Engineering (NIE), established in the year 1946, is a premier engineering college in Mysuru, Karnataka, India.',
-        'NIE is a premier engineering college in Mysuru, Karnataka, India.'
+        'BE: Total fees for the programme is 10.66 Lakhs(approx).\n Mtech: Total fees for the programme is 1.51 Lakhs(approx).\nMCA: Total fees for the programme is 1.28 Lakhs(approx).\nTo get exact number, Visit: (https://nie.ac.in/admission/)'
     ]),
     (r'(.*)campus(.*)|(.*)campuses(.*)', [
-        'NIE offers 3 UG Courses and 1 PG Course at North Campus and NIE offers 4 UG Courses and 9 PG Courses at South Campus'
+        'NIE has two campuses. NIE North and NIE South.\nNIE offers 3 UG Courses and 1 PG Course at North Campus and 4 UG Courses and 9 PG Courses at South Campus'
     ]),
     # Handle general mentions of "courses offered" more flexibly
-    (r'(.*)courses offered(.*)', [
-        'NIE has two campuses. NIE North and NIE South.\nNIE College offers a variety of undergraduate and postgraduate courses. Check out our courses page for more details: [Courses Offered](https://nie.ac.in/courses-offered/)'
+    (r'(.*)courses(.*)', [
+        'NIE College offers a variety of undergraduate and postgraduate courses. Check out our courses page for more details: [Courses Offered](https://nie.ac.in/courses-offered/)'
     ]),
     # Handle general mentions of "contact" or "contact us" more flexibly
     (r'(.*)contact(.*)', [
-        'You can contact NIE College through the contact information provided on the website. Here’s the link: [Contact Information](https://nie.ac.in/contact-us/)'
+        'NIE NORTH\n+91 – 63669 14772\nnorthcampus@nie.ac.in\n\nNIE SOUTH\n+91 – 63669 14771\nsouthcampus@nie.ac.in'
     ]),
     # Handle general mentions of "location" more flexibly
     (r'(.*)location(.*)', [
         'NIE College is located in Mysuru, Karnataka. Visit the campus at the North Campus for a tour. For location details, check: [Location](https://nie.ac.in/contact-us/)'
     ]),
+    (r'(.*)placements(.*)',
+     ['Highest package offered during the 2021-22 is 43.18 LPA.']),
+
     # Handle gratitude in a general way
     (r'(.*) (thanks|thank you)(.*)',
      ['You’re welcome! Let me know if you have more questions.']),
