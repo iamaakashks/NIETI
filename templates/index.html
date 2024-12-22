@@ -18,7 +18,7 @@
                 .then(data => {
                     const chatbox = document.getElementById('chatbox');
                     chatbox.innerHTML += `<div class="message user-msg"><strong>You:</strong> ${userMessage}</div>`;
-                    chatbox.innerHTML += `<div class="message bot-msg"><strong>Bot:</strong> ${data.response}</div>`;
+                    chatbox.innerHTML += `<div class="message bot-msg"><strong>NIETI:</strong> ${data.response}</div>`;
                     document.getElementById('userInput').value = '';
                     chatbox.scrollTop = chatbox.scrollHeight;
                 });
@@ -40,7 +40,7 @@
     <!-- Navbar -->
     <div class="navbar">
         <div class="logo-container">
-            <img src="../images/NIEtopLogo.png" alt="nothing" class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/en/f/fd/NIE_University_logo.svg" alt="nothing" class="logo">
             <h1>NIE College</h1>
         </div>
         <nav>
@@ -56,7 +56,7 @@
     <div class="hero-section">
         <h2>Welcome to NIE College!</h2>
         <p>Providing world-class education for a brighter future.</p>
-        <img src="../images/NIEtopLogo.png" alt="College Logo" class="logo">"
+        <img src="https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/images/institutes/logo/170x170/635.jpg?v=1602772429" alt="College Logo" class="logoBig">
     </div>
 
 
