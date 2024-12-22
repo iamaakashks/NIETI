@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIE College Inquiry Chatbot - Mysuru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .chat-container {
+            width: 60%;
+            margin: 50px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        .chat-box {
+            width: 100%;
+            height: 400px;
+            overflow-y: scroll;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 6px;
+            background-color: #fafafa;
+            margin-bottom: 20px;
+        }
+        .user-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        .btn-send {
+            padding: 12px 25px;
+            background-color: #005f73;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .btn-send:hover {
+            background-color: #0a9396;
+        }
+        .message {
+            margin-bottom: 15px;
+        }
+        .bot-message {
+            background-color: #d1ecf1;
+            padding: 10px;
+            border-radius: 6px;
+            margin-left: 10px;
+        }
+        .user-message {
+            background-color: #e2e3e5;
+            padding: 10px;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #005f73;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <h2>NIE College Inquiry Chatbot - Mysuru</h2>
+    <!-- College Logo -->
+    <img src="https://nie.ac.in/wp-content/uploads/2019/10/NIE_Logo.png" alt="NIE College Logo" class="logo">
+    
+    <div id="chat-box" class="chat-box"></div>
+    
+    <input type="text" id="user-input" class="user-input" placeholder="Ask me anything about NIE College..." />
+    <button class="btn-send" onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+    function sendMessage() {
+        var userInput = document.getElementById('user-input').value;
+        if (userInput.trim() != "") {
+            // Add user message to chat box
+            var userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user-message');
+            userMessage.innerText = userInput;
+            document.getElementById('chat-box').appendChild(userMessage);
+            
+            // Clear input field
+            document.getElementById('user-input').value = '';
+            
+            // Scroll chat box to bottom
+            document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+
+            // Get bot response from Flask
+            fetch(`/get?msg=${encodeURIComponent(userInput)}`)
+                .then(response => response.json())
+                .then(data => {
+                    var botMessage = document.createElement('div');
+                    botMessage.classList.add('message', 'bot-message');
+                    botMessage.innerText = data.response;
+                    document.getElementById('chat-box').appendChild(botMessage);
+                    
+                    // Scroll chat box to bottom
+                    document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+                });
+        }
+    }
+</script>
+</body>
+</html>
