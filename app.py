@@ -27,6 +27,11 @@ patterns = [
     (r'(.*)campus(.*)|(.*)campuses(.*)',
      ['NIE has two campuses. NIE North and NIE South.']),
 
+    #about
+    (r'(.*)about nie(.*)|(.*)about(.*)', [
+        "The National Institute of Engineering (NIE), Mysuru, is one of Karnataka's oldest and most prestigious engineering colleges. Known for its quality education, state-of-the-art facilities, and diverse student clubs, NIE fosters innovation and excellence."
+    ]),
+
     # Handle general mentions of "courses offered" more flexibly
     (r'(.*)courses(.*)', [
         'NIE offers 3 UG Courses and 1 PG Course at North Campus and 4 UG Courses and 9 PG Courses at South Campus'
@@ -40,10 +45,9 @@ patterns = [
         'NIE College is located in Mysuru, Karnataka. Visit the campus at the North Campus for a tour. For location details, check: [Location]<a href="https://nie.ac.in/contact-us/">https://nie.ac.in/contact-us/</a>'
     ]),
     #placements
-    (r'(.*)placements(.*)|(.*)placement(.*)|(.*)placements Statistics(.*)|(.*)placement Statistics(.*)|(.*)placement Statistic(.*)|(.*)placements Statistic(.*)|(.*)placements Stats(.*)|(.*)placement Stats(.*)',
-     [
-         'Highest package offered:	INR 56 LPA\nAverage package:INR 9 LPA\nNo. of eligible students: 821\nNo. of students placed: 708\nTotal offers made: 960+\nNo. of Dream offers: 500+\nNo. of companies visited: 348\nPopular recruiters: Dell, Zomato, IBM, Samsung, Infosys \n for more info visit <a href="https://nie.ac.in/placements/">https://nie.ac.in/placements/</a>'
-     ]),
+    (r'(.*)placements(.*)|(.*)placement(.*))', [
+        'Highest package offered:	INR 56 LPA\nAverage package:INR 9 LPA\nNo. of eligible students: 821\nNo. of students placed: 708\nTotal offers made: 960+\nNo. of Dream offers: 500+\nNo. of companies visited: 348\nPopular recruiters: Dell, Zomato, IBM, Samsung, Infosys \n for more info visit <a href="https://nie.ac.in/placements/">https://nie.ac.in/placements/</a>'
+    ]),
     #activities
     (r'(.*)activities(.*)|(.*)extra-curricular activities(.*)|(.*)clubs(.*)|(.*)extra curricular activities(.*)',
      [
