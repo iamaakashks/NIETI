@@ -48,9 +48,10 @@ patterns = [
          'Highest package offered:	INR 56 LPA\nAverage package:INR 9 LPA\nNo. of eligible students: 821\nNo. of students placed: 708\nTotal offers made: 960+\nNo. of Dream offers: 500+\nNo. of companies visited: 348\nPopular recruiters: Dell, Zomato, IBM, Samsung, Infosys'
      ]),
     #activities
-    (r'(.*)activities(.*)|(.*)extra-curricular activities(.*)|(.*)clubs(.*)', [
-        'NIE offers a range of clubs, including technical ones like OWASP, ONYX, IEEE, and The Byte Club, as well as non-technical options like the Kannada Club and ED-Soc literature Club. Would you like details on any specific club?'
-    ]),
+    (r'(.*)activities(.*)|(.*)extra-curricular activities(.*)|(.*)clubs(.*)|(.*)extra curricular activities(.*)',
+     [
+         'NIE offers a range of clubs, including technical ones like OWASP, ONYX, IEEE, and The Byte Club, as well as non-technical options like the Kannada Club and ED-Soc literature Club. Would you like details on any specific club?'
+     ]),
     #hostel facilities
     (r'(.*)hostel(.*)|(.*)hostel facilities(.*)', [
         'The Institute has constructed two brand new hostels – one for boys and another one for girls with all modern amenities.',
