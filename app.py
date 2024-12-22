@@ -57,6 +57,16 @@ patterns = [
         'The boys’ hostel building is G+4 floors, with 49 triple accommodations, 2 double accommodations and 4 guest rooms.\nThe girls’ hostel building is G+4 floors, with 40 triple accommodation, 2 double accommodation and 4 guest rooms.'
     ]),
 
+    #seat-matrix
+    (r'(.*)seat(.*)|(.*)seat matrix(.*)', [
+        'click at the link to get the update: https://nie.ac.in/admission/seat-matrix-updated-2024/'
+    ]),
+
+    #faculties
+    (r'(.*)faculty(.*)|(.*)faculties(.*)|(.*)faculty details(.*)', [
+        'NIE has experienced and supportive faculty members who are dedicated to providing quality education and fostering student growth. click here to get more about this: https://nie.ac.in/faculty-corner/'
+    ]),
+
     #transportation
     (r'(.*)Transport(.*)|(.*)Transportation(.*)', [
         'NIE provides bus facilities for day-scholars and also between the south-campus hostel and north-campus.'
