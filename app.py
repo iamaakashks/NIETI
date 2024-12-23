@@ -29,12 +29,19 @@ patterns = [
         'Hon. President: Dr. Ranganath M S \nVice President: Mr. Niranjan Simha S \nHon.Secretary: Mr.  UdayShankar S B \nDirector: Mr.  Srinath Batni'
     ]),
     #principal
-    (r'(.*)Principal(.*)|(.*)principle(.*)', [
-        'Hon. Principal: Dr. Rohini Nagapadma'
-    ]),
+    (r'(.*)Principal(.*)|(.*)principle(.*)',
+     ['Hon. Principal: Dr. Rohini Nagapadma']),
     # Admission process
     (r'(.*)admission process(.*)|(.*)admission(.*)', [
         'Candidates need to register for entrance exams like KCET or COMEDK-UCET for BE admission.\nFor Management Quota, registration will be done on the official website of the institute.\nNIE Mysore takes admissions to MCA and MTech programmes is through the Karnataka PGCET conducted by the Karnataka Examination Authority (KEA).\nFor detailed information, visit our official admissions page: <a href="https://nie.ac.in/admission/">(https://nie.ac.in/admission/</a>)'
+    ]),
+    #documents required
+    (r'(.*)documents(.*)|(.*)documents(.*)required(.*)', [
+        '<a href="https://nie.ac.in/wp-content/uploads/2023/08/1st-Year-B.E-Academic-Year-2023-24-with-the-documents-to-be-produced..pdf">https://nie.ac.in/wp-content/uploads/2023/08/1st-Year-B.E-Academic-Year-2023-24-with-the-documents-to-be-produced..pdf</a>'
+    ]),
+    #departments
+    (r'(.*)departments(.*)', [
+        'North Campus: Computer Science & Engineering\nInformation Science & Engineering\nComputer Science Engineering (AI & ML)'
     ]),
     # Handle general mentions of "fee structure" more flexibly
     (r'(.*)fee(.*)|(.*)fees(.*)|(.*)total cost(.*)', [
@@ -73,7 +80,7 @@ patterns = [
     ]),
 
     #vision-mission
-    (r'(.*)vision and mission(.*)|(.*)vision(.*)|(.*)vision(.*)mission(.*)', [
+    (r'(.*)mission(.*)|(.*)vision(.*)|(.*)vision(.*)mission(.*)', [
         'Vision: To be a globally recognized institution offering value-based technical and scientific education.\nMission: Deliver quality engineering education with strong theoretical and practical foundations.'
     ]),
 
