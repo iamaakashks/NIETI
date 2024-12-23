@@ -3,19 +3,32 @@ from flask import Flask, render_template, request, jsonify
 import nltk
 from nltk.chat.util import Chat, reflections
 
-# Download the necessary NLTK package
+#NLTK package
 nltk.download('punkt')
 
 app = Flask(__name__)
 
-# Define more general chatbot patterns to handle varied user inputs
+# general chatbot patterns
 patterns = [
     (r'hi|hello|hey', ["Hello! My name is NIETI. How can I assist you today?"
                        ]),
     #college name
     (r'(.*)college name(.*)',
      ['The National Institutes of Engineering, Mysuru.']),
-    # Handle general mentions of "admission process" more flexibly
+    #about nie
+    (r'(.*)about(.*)nie(.*)', [
+        'The National Institute of Engineering (NIE), established in the year 1946.',
+        'NIE is a grant-in-aid institution and approved by the All India Council for Technical Education (AICTE), New Delhi. NIE got autonomous status from Visvesvaraya Technological University, Belagavi in 2007.  It has been accredited by NAAC.'
+    ]),
+    #milestones
+    (r'(.*)milestone(.*)', [
+        "1946->NIE started by a 'three-man army' of retired engineers \n1950->UoM (University of Mysore) Affiliation \n1986->AICTE approval \n1998->VTU Affiliation \n2007->Grant of Autonomy by VTU \n2020->Accreditation by NAAC\n"
+    ]),
+    #leaders
+    (r'(.*)leaders(.*)|(.*)leading(.*)', [
+        'Hon. President: Dr. Ranganath M S \nVice President: Mr. Niranjan Simha S \nHon.Secretary: Mr.  UdayShankar S B \nDirector: Mr.  Srinath Batni'
+    ]),
+    # Admission process
     (r'(.*)admission process(.*)|(.*)admission(.*)', [
         'Candidates need to register for entrance exams like KCET or COMEDK-UCET for BE admission.\nFor Management Quota, registration will be done on the official website of the institute.\nNIE Mysore takes admissions to MCA and MTech programmes is through the Karnataka PGCET conducted by the Karnataka Examination Authority (KEA).\nFor detailed information, visit our official admissions page: <a href="https://nie.ac.in/admission/">(https://nie.ac.in/admission/</a>)'
     ]),
@@ -55,9 +68,14 @@ patterns = [
         'The boys’ hostel building is G+4 floors, with 49 triple accommodations, 2 double accommodations and 4 guest rooms.\nThe girls’ hostel building is G+4 floors, with 40 triple accommodation, 2 double accommodation and 4 guest rooms. for more info <a href="https://nie.ac.in/campus-life/#student-housing">https://nie.ac.in/campus-life/#student-housing</a>'
     ]),
 
+    #vision-mission
+    (r'(.*)vision and mission(.*)|(.*)vision(.*)|(.*)vision(.*)mission(.*)', [
+        'Vision: To be a globally recognized institution offering value-based technical and scientific education.\nMission: Deliver quality engineering education with strong theoretical and practical foundations.'
+    ]),
+
     #seat-matrix
     (r'(.*)seat(.*)|(.*)seat matrix(.*)', [
-        'click at the link to get the update: https://nie.ac.in/admission/seat-matrix-updated-2024/'
+        'click at the link to get the update: <a href="https://nie.ac.in/admission/seat-matrix-updated-2024/">https://nie.ac.in/admission/seat-matrix-updated-2024/</a>'
     ]),
 
     #faculties
