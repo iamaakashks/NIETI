@@ -28,6 +28,10 @@ patterns = [
     (r'(.*)leaders(.*)|(.*)leading(.*)', [
         'Hon. President: Dr. Ranganath M S \nVice President: Mr. Niranjan Simha S \nHon.Secretary: Mr.  UdayShankar S B \nDirector: Mr.  Srinath Batni'
     ]),
+    #principal
+    (r'(.*)Principal(.*)|(.*)principle(.*)', [
+        'Hon. Principal: Dr. Rohini Nagapadma'
+    ]),
     # Admission process
     (r'(.*)admission process(.*)|(.*)admission(.*)', [
         'Candidates need to register for entrance exams like KCET or COMEDK-UCET for BE admission.\nFor Management Quota, registration will be done on the official website of the institute.\nNIE Mysore takes admissions to MCA and MTech programmes is through the Karnataka PGCET conducted by the Karnataka Examination Authority (KEA).\nFor detailed information, visit our official admissions page: <a href="https://nie.ac.in/admission/">(https://nie.ac.in/admission/</a>)'
