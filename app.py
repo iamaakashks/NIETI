@@ -28,6 +28,11 @@ patterns = [
     (r'(.*)leaders(.*)|(.*)leading(.*)', [
         'Hon. President: Dr. Ranganath M S \nVice President: Mr. Niranjan Simha S \nHon.Secretary: Mr.  UdayShankar S B \nDirector: Mr.  Srinath Batni'
     ]),
+    #faculty
+    #leaders
+    (r'(.*)faculty(.*)cse(.*)|(.*)cse(.*)faculty(.*)|(.*)faculty(.*)', [
+        '<a href="https://nie.ac.in/wp-content/uploads/2021/11/Profile-of-Principal-Faculty-nov21.pdf#page=182">Click here to get the list of Faculty for each Department</a>'
+    ]),
     #principal
     (r'(.*)Principal(.*)|(.*)principle(.*)',
      ['Hon. Principal: Dr. Rohini Nagapadma']),
@@ -39,13 +44,22 @@ patterns = [
     (r'(.*)documents(.*)|(.*)documents(.*)required(.*)', [
         '<a href="https://nie.ac.in/wp-content/uploads/2023/08/1st-Year-B.E-Academic-Year-2023-24-with-the-documents-to-be-produced..pdf">https://nie.ac.in/wp-content/uploads/2023/08/1st-Year-B.E-Academic-Year-2023-24-with-the-documents-to-be-produced..pdf</a>'
     ]),
-    #departments
-    (r'(.*)departments(.*)', [
-        'North Campus: Computer Science & Engineering\nInformation Science & Engineering\nComputer Science Engineering (AI & ML)'
-    ]),
     #cse departments
     (r'(.*)cse(.*)', [
         'The Department of CS&E and AI&ML  has 9 faculty with Ph.D degrees. The current faculty strength is 34 which includes 5 Professors, 4 Associate Professors, 25 Assistant Professors.'
+    ]),
+    #departments
+    (r'(.*)department(.*)', [
+        '<b>North Campus:</b> Computer Science & Engineering\nInformation Science & Engineering\nComputer Science Engineering (AI & ML)\n<b>South Campus:</b>Civil Engineering\nMechanical Engineering\nElectrical & Electronics Engineering\nElectronics & Communication Engineering\nIndustrial & Production Engineering\nMathematics\nPhysics\nChemistry'
+    ]),
+
+    #top recruiters
+    (r'(.*)top(.*)recruiters(.*)|(.*)recruiters(.*)', [
+        'You could join the ranks of big names such as ABB Ltd., Mercedes Benz, Larsen & Toubro Ltd, TCS, Accenture, GE Digital, CISCO, Intuit, D.E. Shaw, SAP Labs and Bharat Electronics Ltd.'
+    ]),
+    #library
+    (r'(.*)libraries(.*)|(.*)library(.*)', [
+        '<b>Vision</b>: To become a premier learning resource centre with a state of art library resources and services in science and technology.\n<b>Mission</b>: To serve as a user friendly resource centre by incorporating latest technology.\n<b>About Library</b>: Library and Information Centre, NIE is one of the best engineering college libraries among engineering college in the state.'
     ]),
     # Handle general mentions of "fee structure" more flexibly
     (r'(.*)fee(.*)|(.*)fees(.*)|(.*)total cost(.*)', [
@@ -130,7 +144,6 @@ def get_bot_response():
     # Replace newlines with <br> to format the output correctly in HTML
     bot_response = bot_response.replace("\n", "<br>")
     return jsonify({'response': bot_response})
-
 
 
 # Run the app on the appropriate port
