@@ -43,6 +43,10 @@ patterns = [
     (r'(.*)departments(.*)', [
         'North Campus: Computer Science & Engineering\nInformation Science & Engineering\nComputer Science Engineering (AI & ML)'
     ]),
+    #cse departments
+    (r'(.*)cse(.*)', [
+        'The Department of CS&E and AI&ML  has 9 faculty with Ph.D degrees. The current faculty strength is 34 which includes 5 Professors, 4 Associate Professors, 25 Assistant Professors.'
+    ]),
     # Handle general mentions of "fee structure" more flexibly
     (r'(.*)fee(.*)|(.*)fees(.*)|(.*)total cost(.*)', [
         'BE: Total fees for the programme is 10.66 Lakhs(approx).\n Mtech: Total fees for the programme is 1.51 Lakhs(approx).\nMCA: Total fees for the programme is 1.28 Lakhs(approx).\nTo get exact number, Visit: <a href="https://nie.ac.in/admission/">(https://nie.ac.in/admission/)</a>'
