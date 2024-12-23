@@ -29,9 +29,12 @@ patterns = [
         'Hon. President: Dr. Ranganath M S \nVice President: Mr. Niranjan Simha S \nHon.Secretary: Mr.  UdayShankar S B \nDirector: Mr.  Srinath Batni'
     ]),
     #faculty
-    #leaders
-    (r'(.*)faculty(.*)cse(.*)|(.*)cse(.*)faculty(.*)|(.*)faculty(.*)', [
-        '<a href="https://nie.ac.in/wp-content/uploads/2021/11/Profile-of-Principal-Faculty-nov21.pdf#page=182">Click here to get the list of Faculty for each Department</a>'
+    #cse faculty
+    (r'(.*)faculty(.*)cse(.*)|(.*)cse(.*)faculty(.*)', [
+        '<a href="https://nie.ac.in/wp-content/uploads/2021/11/Profile-of-Principal-Faculty-nov21.pdf#page=182">Click here to get the list of Faculty for CSE Department</a>'
+    ]),
+    (r'(.*)faculty(.*)ise(.*)|(.*)ise(.*)faculty(.*)', [
+        '<a href="https://nie.ac.in/wp-content/uploads/2021/11/Profile-of-Principal-Faculty-nov21.pdf#page=225">Click here to get the list of Faculty for ISE Department</a>'
     ]),
     #principal
     (r'(.*)Principal(.*)|(.*)principle(.*)',
@@ -109,7 +112,7 @@ patterns = [
 
     #faculties
     (r'(.*)faculty(.*)|(.*)faculties(.*)|(.*)faculty details(.*)', [
-        'NIE has experienced and supportive faculty members who are dedicated to providing quality education and fostering student growth'
+        'NIE has experienced and supportive faculty members who are dedicated to providing quality education and fostering student growth\n<a href="https://nie.ac.in/wp-content/uploads/2021/11/Profile-of-Principal-Faculty-nov21.pdf">Click here to get the full list of Faculty</a>'
     ]),
 
     #transportation
