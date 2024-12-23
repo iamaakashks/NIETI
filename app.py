@@ -122,7 +122,11 @@ def index():
 @app.route('/get', methods=['GET'])
 def get_bot_response():
     user_input = request.args.get('msg')
-    return jsonify({'response': chatbot.respond(user_input)})
+    bot_response = chatbot.respond(user_input)
+    # Replace newlines with <br> to format the output correctly in HTML
+    bot_response = bot_response.replace("\n", "<br>")
+    return jsonify({'response': bot_response})
+
 
 
 # Run the app on the appropriate port
